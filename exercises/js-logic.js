@@ -17,7 +17,13 @@ Finish the function. Using the number that is passed in, `num`, first find all t
 Ex: If the number passed in is 10; 3, 5, 6, and 9 are both less than 10 and multiples of 3 or 5. The sum of these numbers are 23
 */
 const sumOfNumbers = (num) => {
-	// answer here
+	let sum = 0
+	for (let i = 1; i < num; i++) {
+		if (i % 3 === 0 || i % 5 === 0) {
+		sum = sum + i;
+		}
+	}
+	return sum;
 }
 
 /*
@@ -26,19 +32,25 @@ Question 2
 Finish the function. Using the string that is passed in return the number of how many vowels occur.
 */
 const vowelCount = (str) => {
-	// answer here
+	const vowels = ['a','e','i','o','u']
+	let counter = 0
+	for (let letter of str.toLowerCase()) {
+		if (vowels.includes(letter)){
+			counter++
+		}
+	}
+	return counter
 }
 
 /*
 Question 3
 
-Finish the function. Using the string that is passed in return the same string but if a word in that string is longer than 5 word reverse it.
+Finish the function. Using the string that is passed in return the same string but if a word in that string is longer than 5 letters reverse it.
 
 Ex: If the string that is passed in is `hey there person` the return value should be `hey ereht nosrep`
 */
-const stringReverse = (str) => {
-	// answer here
-}
+const stringReverse = (str) => str.split(" ").map((word) => (word.length >= 5) ? word.split("").reverse().join("") : word).join(" ");
+
 
 module.exports = {
 	sumOfNumbers,
